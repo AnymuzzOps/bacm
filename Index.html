@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BACM — Automatización & Tecnología</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f3ef;
+      --ink: #0f0e0c;
+      --muted: #7a7570;
+      --accent: #c8ff00;
+      --accent-dark: #a8d800;
+      --card: #eceae5;
+      --border: #dddad4;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(120px, 22vw, 280px);
+      color: transparent;
+      -webkit-text-stroke: 1px var(--border);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.6;
+      animation: fadeInSlow 1.4s ease forwards;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: var(--ink);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      width: fit-content;
+      animation: slideUp 0.8s ease 0.1s both;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--ink);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(48px, 8vw, 110px);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      max-width: 900px;
+      animation: slideUp 0.8s ease 0.2s both;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .hero-sub {
+      margin-top: 32px;
+      max-width: 480px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      animation: slideUp 0.8s ease 0.35s both;
+    }
+
+    .hero-cta {
+      margin-top: 48px;
+      display: flex;
+      gap: 16px;
+      animation: slideUp 0.8s ease 0.45s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: #2a2825;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 120px 48px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 60px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      max-width: 60px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ABOUT */
+    #sobre-mi {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-left h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 4vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 28px;
+    }
+
+    .about-left p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .about-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 24px;
+    }
+
+    .stat-card .num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-card .label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .stat-card.accent {
+      background: var(--accent);
+      border-color: var(--accent-dark);
+    }
+
+    /* SERVICIOS */
+    #servicios {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    #servicios .section-label {
+      color: #666;
+    }
+
+    #servicios .section-label::after {
+      background: #333;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: #222;
+      border: 2px solid #222;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--ink);
+      padding: 40px 32px;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .service-card:hover { background: #1a1a18; }
+
+    .service-icon {
+      font-size: 28px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--bg);
+    }
+
+    .service-card p {
+      color: #888;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .service-tag {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* PROYECTOS */
+    #proyectos { background: var(--bg); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .project-type {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .project-year {
+      font-size: 11px;
+      color: var(--border);
+    }
+
+    .project-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* CONTACTO */
+    #contacto {
+      background: var(--bg);
+      text-align: center;
+    }
+
+    #contacto h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(42px, 7vw, 90px);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    #contacto h2 em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    #contacto p {
+      color: var(--muted);
+      max-width: 420px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInSlow {
+      from { opacity: 0; }
+      to { opacity: 0.6; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 0 24px 60px; }
+      section { padding: 80px 24px; }
+      #sobre-mi { grid-template-columns: 1fr; gap: 48px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">BACM</a>
+    <ul class="nav-links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-text">BACM</div>
+    <div class="hero-badge">Disponible para proyectos</div>
+    <h1>Automatización<br><em>& Tecnología</em><br>a tu medida.</h1>
+    <p class="hero-sub">Bots inteligentes, páginas web y soluciones informáticas diseñadas para hacer crecer tu negocio sin complicaciones.</p>
+    <div class="hero-cta">
+      <a href="#servicios" class="btn btn-primary">Ver servicios →</a>
+      <a href="#contacto" class="btn btn-secondary">Contactar</a>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi">
+    <div class="about-left reveal">
+      <div class="section-label">Sobre mí</div>
+      <h2>Tecnología que <em>realmente</em> trabaja para ti.</h2>
+      <p>Soy BACM, especialista en automatización, desarrollo web y soluciones informáticas. Me enfoco en construir herramientas que ahorran tiempo, reducen errores y escalan con tu negocio.</p>
+      <p>Trabajo con las últimas tecnologías, incluyendo inteligencia artificial, para entregar resultados rápidos y de calidad profesional.</p>
+    </div>
+    <div class="about-right reveal">
+      <div class="stat-card accent">
+        <div class="num">100%</div>
+        <div class="label">Enfoque en resultados</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">24h</div>
+        <div class="label">Tiempo de respuesta</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">IA</div>
+        <div class="label">Integrada en cada solución</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">∞</div>
+        <div class="label">Soporte post-entrega</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="section-label">Servicios</div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-icon">🤖</span>
+        <h3>Bots Automatizados</h3>
+        <p>Bots para WhatsApp, Telegram, Discord y más. Automatiza atención al cliente, ventas y tareas repetitivas con inteligencia artificial.</p>
+        <span class="service-tag">→ Automatización</span>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">🌐</span>
+        <h3>Páginas Web</h3>
+        <p>Diseño y desarrollo de sitios web modernos, rápidos y optimizados. Desde landing pages hasta portafolios y tiendas online.</p>
+        <span class="service-tag">→ Desarrollo Web</span>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-icon">⚙️</span>
+        <h3>Servicios Informáticos</h3>
+        <p>Soporte técnico, configuración de sistemas, integraciones entre plataformas y soluciones personalizadas para tu negocio.</p>
+        <span class="service-tag">→ Tecnología</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos">
+    <div class="section-label">Proyectos</div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-meta">
+          <span class="project-type">Bot / Automatización</span>
+          <span class="project-year">2025</span>
+        </div>
+        <h3>Bot de Atención al Cliente</h3>
+        <p>Sistema automatizado de respuestas para WhatsApp Business con integración de IA. Reduce el tiempo de respuesta en un 80%.</p>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-meta">
+          <span class="project-type">Desarrollo Web</span>
+          <span class="project-year">2025</span>
+        </div>
+        <h3>Landing Page Corporativa</h3>
+        <p>Diseño y desarrollo completo de sitio web para empresa de servicios. Optimizado para conversión y posicionamiento SEO.</p>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-meta">
+          <span class="project-type">Automatización</span>
+          <span class="project-year">2024</span>
+        </div>
+        <h3>Sistema de Reportes Automáticos</h3>
+        <p>Integración entre plataformas para generar y enviar reportes automáticos. Ahorra más de 10 horas semanales al equipo.</p>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-meta">
+          <span class="project-type">Informática</span>
+          <span class="project-year">2024</span>
+        </div>
+        <h3>Infraestructura para PYME</h3>
+        <p>Configuración y optimización completa de sistemas para empresa mediana. Migración a la nube y mejora de seguridad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="section-label" style="justify-content: center;">Contacto</div>
+    <h2 class="reveal">¿Listo para<br><em>empezar?</em></h2>
+    <p class="reveal">Cuéntame tu proyecto y te respondo en menos de 24 horas con una propuesta concreta.</p>
+    <div class="contact-links reveal">
+      <a href="mailto:contacto@bacm.cl" class="btn btn-primary">✉ Escribir un email</a>
+      <a href="https://wa.me/56900000000" class="btn btn-secondary" target="_blank">💬 WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 BACM — Todos los derechos reservados</span>
+    <span>Automatización & Tecnología</span>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
