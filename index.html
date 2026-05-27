@@ -34,6 +34,21 @@
       --nav-h:     72px;
     }
 
+    body.dark-mode {
+      --bg:        #091422;
+      --bg-2:      #0d1b2e;
+      --bg-card:   #112238;
+      --blue:      #5eaee6;
+      --cyan:      #77cdf8;
+      --cyan-dim:  rgba(119,205,248,0.14);
+      --white:     #e8f4ff;
+      --green:     #58d68d;
+      --green-dim: rgba(88,214,141,0.12);
+      --muted:     #9db6ca;
+      --border:    rgba(119,205,248,0.22);
+      --border-h:  rgba(119,205,248,0.5);
+    }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -126,6 +141,7 @@
       display: flex;
       gap: 40px;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
@@ -167,6 +183,26 @@
     }
 
     .nav-cta::after { display: none !important; }
+
+    .theme-toggle {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--border-h);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .theme-toggle:hover {
+      background: var(--cyan-dim);
+      border-color: var(--cyan);
+      transform: translateY(-1px);
+    }
 
     /* Hamburger */
     .nav-toggle {
@@ -332,7 +368,7 @@
       align-items: center;
       gap: 10px;
       background: var(--green-dim);
-      border: 1px solid rgba(34,197,94,0.45);
+      border: 1px solid rgba(88,214,141,0.45);
       border-radius: 100px;
       padding: 6px 16px;
       font-size: 12px;
@@ -381,6 +417,12 @@
       flex-wrap: wrap;
       justify-content: center;
       animation: fadeUp 0.8s ease 0.45s both;
+    }
+
+    .hero-btns.mini-capsules .btn {
+      padding: 10px 20px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
     }
 
     .hero-stats {
@@ -1032,7 +1074,7 @@
         position: absolute;
         top: var(--nav-h);
         left: 0; right: 0;
-        background: rgba(247,252,255,0.98);
+        background: var(--bg-card);
         flex-direction: column;
         gap: 0;
         border-bottom: 1px solid var(--border);
@@ -1061,13 +1103,14 @@
   <!-- ═══════════════════════════════════════ NAV -->
   <nav id="navbar" role="navigation" aria-label="Navegación principal">
     <a href="#inicio" class="nav-logo" aria-label="ARKAIUS Digital — Inicio">
-      ARKAI<span>US</span>
+      ARKAIUS
     </a>
     <ul class="nav-links" id="navLinks" role="list">
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#portafolio">Portafolio</a></li>
       <li><a href="#precios">Precios</a></li>
+      <li><button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar modo de color">🌙 Oscuro</button></li>
       <li><a href="#contacto" class="nav-cta">Cotizar →</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
@@ -1098,7 +1141,7 @@
           <a href="#servicios" class="btn btn-primary">Ver servicios →</a>
           <a href="#contacto" class="btn btn-outline">Solicitar cotización</a>
         </div>
-        <div class="hero-btns" aria-label="Servicios clave">
+        <div class="hero-btns mini-capsules" aria-label="Servicios clave">
           <a href="#servicios" class="btn btn-outline">Desarrollo web</a>
           <a href="#servicios" class="btn btn-outline">Automatización</a>
           <a href="#servicios" class="btn btn-outline">Bots para ventas</a>
@@ -1377,7 +1420,7 @@
   <footer role="contentinfo">
     <div class="container">
       <div class="footer-inner">
-        <a href="#inicio" class="footer-logo" aria-label="ARKAIUS Digital">ARKAI<em>US</em></a>
+        <a href="#inicio" class="footer-logo" aria-label="ARKAIUS Digital">ARKAIUS</a>
         <ul class="footer-links" role="list">
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#portafolio">Portafolio</a></li>
@@ -1406,9 +1449,29 @@
     // ── Nav scroll shadow
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
+      const dark = document.body.classList.contains('dark-mode');
       nav.style.background = window.scrollY > 40
-        ? 'rgba(247,252,255,0.98)'
-        : 'rgba(247,252,255,0.92)';
+        ? (dark ? 'rgba(9,20,34,0.97)' : 'rgba(247,252,255,0.98)')
+        : (dark ? 'rgba(9,20,34,0.9)' : 'rgba(247,252,255,0.92)');
+    });
+
+
+    const themeToggle = document.getElementById('themeToggle');
+    const applyTheme = (mode) => {
+      const dark = mode === 'dark';
+      document.body.classList.toggle('dark-mode', dark);
+      themeToggle.textContent = dark ? '☀️ Claro' : '🌙 Oscuro';
+      nav.style.background = window.scrollY > 40
+        ? (dark ? 'rgba(9,20,34,0.97)' : 'rgba(247,252,255,0.98)')
+        : (dark ? 'rgba(9,20,34,0.9)' : 'rgba(247,252,255,0.92)');
+      localStorage.setItem('arkaius-theme', dark ? 'dark' : 'light');
+    };
+
+    const savedTheme = localStorage.getItem('arkaius-theme') || 'light';
+    applyTheme(savedTheme);
+    themeToggle.addEventListener('click', () => {
+      const next = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+      applyTheme(next);
     });
 
     // ── Mobile menu
