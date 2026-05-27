@@ -10,26 +10,26 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     /* ─── RESET & TOKENS ─────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0B1020;
-      --bg-2:      #0F1428;
-      --bg-card:   #111827;
-      --blue:      #2563EB;
-      --cyan:      #06B6D4;
-      --cyan-dim:  rgba(6,182,212,0.12);
-      --white:     #F8FAFC;
-      --green:     #22C55E;
-      --green-dim: rgba(34,197,94,0.14);
-      --muted:     #94A3B8;
-      --border:    rgba(148,163,184,0.12);
-      --border-h:  rgba(6,182,212,0.35);
-      --ff-display:'Oxanium', sans-serif;
+      --bg:        #f7fcff;
+      --bg-2:      #edf7ff;
+      --bg-card:   #ffffff;
+      --blue:      #4c9fdc;
+      --cyan:      #6fc0ee;
+      --cyan-dim:  rgba(79,159,220,0.14);
+      --white:     #15344b;
+      --green:     #3b8fcd;
+      --green-dim: rgba(76,159,220,0.12);
+      --muted:     #5a7488;
+      --border:    rgba(76,159,220,0.20);
+      --border-h:  rgba(111,192,238,0.42);
+      --ff-display:'Space Grotesk', sans-serif;
       --ff-mono:   'JetBrains Mono', monospace;
       --nav-h:     72px;
     }
@@ -85,7 +85,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 60px;
-      background: rgba(11,16,32,0.85);
+      background: rgba(247,252,255,0.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       transition: background 0.3s;
@@ -161,7 +161,7 @@
     }
 
     .nav-cta:hover {
-      background: #1d4ed8 !important;
+      background: #3b8fcd !important;
       transform: translateY(-1px) !important;
       color: var(--white) !important;
     }
@@ -211,7 +211,7 @@
     }
 
     .btn-primary:hover {
-      background: #1d4ed8;
+      background: #3b8fcd;
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(37,99,235,0.4);
     }
@@ -235,7 +235,7 @@
     }
 
     .btn-cyan:hover {
-      background: #0ea5e9;
+      background: #4c9fdc;
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(6,182,212,0.4);
     }
@@ -322,6 +322,9 @@
       position: relative;
       z-index: 2;
       padding-top: var(--nav-h);
+      text-align: center;
+      max-width: 880px;
+      margin: 0 auto;
     }
 
     .hero-eyebrow {
@@ -350,7 +353,7 @@
 
     .hero-title {
       font-family: var(--ff-display);
-      font-size: clamp(54px, 8.5vw, 104px);
+      font-size: clamp(42px, 7vw, 84px);
       font-weight: 800;
       line-height: 0.92;
       letter-spacing: 0.02em;
@@ -363,19 +366,20 @@
     .hero-title .line-cyan  { color: var(--cyan); }
 
     .hero-sub {
-      margin-top: 28px;
+      margin: 22px auto 0;
       color: var(--muted);
-      max-width: 500px;
-      font-size: 17px;
+      max-width: 700px;
+      font-size: 16px;
       line-height: 1.75;
       animation: fadeUp 0.8s ease 0.35s both;
     }
 
     .hero-btns {
-      margin-top: 44px;
+      margin-top: 30px;
       display: flex;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
+      justify-content: center;
       animation: fadeUp 0.8s ease 0.45s both;
     }
 
@@ -388,7 +392,7 @@
 
     .stat-item .num {
       font-family: var(--ff-display);
-      font-size: 36px;
+      font-size: 30px;
       font-weight: 700;
       color: var(--white);
       line-height: 1;
@@ -509,8 +513,8 @@
     .svc-card:hover::before { opacity: 1; }
 
     .svc-card.highlight {
-      border-color: rgba(37,99,235,0.4);
-      background: linear-gradient(135deg, #111827 0%, #0f1c3d 100%);
+      border-color: var(--border-h);
+      background: linear-gradient(145deg, #fafdff 0%, #eaf5ff 100%);
     }
 
     .svc-card.highlight::before { opacity: 1; }
@@ -612,17 +616,17 @@
 
     .pf-thumb .thumb-icon {
       position: absolute;
-      font-size: 48px;
+      font-size: 42px;
       opacity: 0.6;
       z-index: 2;
     }
 
     /* Unique gradient per card */
-    .pf-t1 { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
-    .pf-t2 { background: linear-gradient(135deg, #1a0533, #16213e, #0f3460); }
-    .pf-t3 { background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77); }
-    .pf-t4 { background: linear-gradient(135deg, #020024, #090979, #00d4ff22); }
-    .pf-t5 { background: linear-gradient(135deg, #093028, #237a57, #1a472a44); }
+    .pf-t1 { background: linear-gradient(135deg, #cfe9fb, #b9dbf3, #9fcde9); }
+    .pf-t2 { background: linear-gradient(135deg, #d9efff, #c5e4fa, #add7f2); }
+    .pf-t3 { background: linear-gradient(135deg, #d4ecfb, #bddff4, #a5d1ea); }
+    .pf-t4 { background: linear-gradient(135deg, #e3f4ff, #cde7f8, #b2d9ef); }
+    .pf-t5 { background: linear-gradient(135deg, #d7efff, #bee0f6, #a4d2eb); }
 
     .pf-body { padding: 24px; }
 
@@ -699,8 +703,8 @@
     }
 
     .pricing-card.popular {
-      border-color: var(--blue);
-      background: linear-gradient(145deg, #111827, #0f1e3e);
+      border-color: var(--border-h);
+      background: linear-gradient(145deg, #fbfeff, #e9f4fe);
     }
 
     .popular-badge {
@@ -902,7 +906,7 @@
 
     /* ─── CTA BLOCK ──────────────────────────────────── */
     .cta-section {
-      background: linear-gradient(135deg, #0d1535 0%, #0b1020 50%, #061525 100%);
+      background: linear-gradient(135deg, #edf7ff 0%, #e3f2fd 50%, #d9ecfa 100%);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       text-align: center;
@@ -924,7 +928,7 @@
 
     .cta-section h2 {
       font-family: var(--ff-display);
-      font-size: clamp(36px, 5vw, 56px);
+      font-size: clamp(32px, 4.6vw, 48px);
       font-weight: 800;
       letter-spacing: -1px;
       line-height: 1.1;
@@ -1028,7 +1032,7 @@
         position: absolute;
         top: var(--nav-h);
         left: 0; right: 0;
-        background: rgba(11,16,32,0.98);
+        background: rgba(247,252,255,0.98);
         flex-direction: column;
         gap: 0;
         border-bottom: 1px solid var(--border);
@@ -1083,30 +1087,22 @@
           Disponible para nuevos proyectos
         </div>
         <h1 class="hero-title">
-          <div>Desarrollo</div>
-          <div class="line-cyan">web & bots</div>
-          <div class="line-muted">para negocios.</div>
+          <div>Desarrollo web</div>
+          <div class="line-cyan">automatización</div>
+          <div class="line-muted">y bots para negocios.</div>
         </h1>
         <p class="hero-sub">
-          Creo páginas web modernas, automatizaciones y bots que ayudan a emprendedores y negocios a mejorar su presencia digital, ahorrar tiempo y captar más clientes.
+          Soluciones digitales claras y efectivas para vender más, responder más rápido y ordenar tus procesos.
         </p>
         <div class="hero-btns">
           <a href="#servicios" class="btn btn-primary">Ver servicios →</a>
           <a href="#contacto" class="btn btn-outline">Solicitar cotización</a>
         </div>
-        <div class="hero-stats" aria-label="Estadísticas">
-          <div class="stat-item">
-            <div class="num">24<em>h</em></div>
-            <div class="lbl">Respuesta máx.</div>
-          </div>
-          <div class="stat-item">
-            <div class="num">100<em>%</em></div>
-            <div class="lbl">Orientado a resultados</div>
-          </div>
-          <div class="stat-item">
-            <div class="num">IA<em>+</em></div>
-            <div class="lbl">En cada solución</div>
-          </div>
+        <div class="hero-btns" aria-label="Servicios clave">
+          <a href="#servicios" class="btn btn-outline">Desarrollo web</a>
+          <a href="#servicios" class="btn btn-outline">Automatización</a>
+          <a href="#servicios" class="btn btn-outline">Bots para ventas</a>
+          <a href="#servicios" class="btn btn-outline">Soporte continuo</a>
         </div>
       </div>
     </div>
@@ -1221,83 +1217,8 @@
     <div class="container section-wrap">
       <div class="reveal">
         <div class="section-label">Portafolio</div>
-        <h2 class="section-title">Proyectos<br><em>de ejemplo.</em></h2>
-        <p class="section-sub">Ejemplos representativos del tipo de soluciones que construyo. Cada proyecto es diseñado a medida para el negocio del cliente.</p>
-      </div>
-      <div class="portfolio-grid" role="list">
-
-        <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb pf-t1" aria-hidden="true">
-            <span class="thumb-icon">🍽️</span>
-          </div>
-          <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Landing Page</span></div>
-            <h3>Restaurante Don Carlo</h3>
-            <p>Landing page moderna para restaurante. Menú destacado, galería, ubicación y botón de reserva directo por WhatsApp.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Restaurante Don Carlo">Ver demo →</a>
-          </div>
-        </article>
-
-        <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb pf-t2" aria-hidden="true">
-            <span class="thumb-icon">🦷</span>
-          </div>
-          <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Web Profesional</span></div>
-            <h3>Clínica Dental Sonría</h3>
-            <p>Sitio web completo para clínica dental. Secciones de servicios, equipo, testimonios y formulario de cita en línea.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Clínica Dental">Ver demo →</a>
-          </div>
-        </article>
-
-        <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb pf-t3" aria-hidden="true">
-            <span class="thumb-icon">✂️</span>
-          </div>
-          <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Landing Page</span></div>
-            <h3>Barbería Urban Cut</h3>
-            <p>Landing con estética oscura y premium para barbería. Servicios, precios, galería de trabajos y agenda rápida.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Barbería">Ver demo →</a>
-          </div>
-        </article>
-
-        <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb pf-t4" aria-hidden="true">
-            <span class="thumb-icon">🤖</span>
-          </div>
-          <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Bot IA</span></div>
-            <h3>Bot de Reservas Automático</h3>
-            <p>Bot para WhatsApp que gestiona reservas, consulta disponibilidad y envía confirmaciones automáticas sin intervención humana.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Bot de Reservas">Ver demo →</a>
-          </div>
-        </article>
-
-        <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb pf-t5" aria-hidden="true">
-            <span class="thumb-icon">⚡</span>
-          </div>
-          <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Automatización</span></div>
-            <h3>Captación de Leads Automática</h3>
-            <p>Formulario web conectado a base de datos, con notificación automática por correo y WhatsApp al recibir cada consulta.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Automatización">Ver demo →</a>
-          </div>
-        </article>
-
-        <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb" style="background: linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);" aria-hidden="true">
-            <span class="thumb-icon">📊</span>
-          </div>
-          <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Automatización</span></div>
-            <h3>Reportes Automáticos</h3>
-            <p>Sistema que recopila datos de formularios y los organiza en reportes semanales enviados automáticamente al equipo.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Reportes Automáticos">Ver demo →</a>
-          </div>
-        </article>
-
+        <h2 class="section-title">Trabajo 100%<br><em>personalizado.</em></h2>
+        <p class="section-sub">No muestro proyectos de ejemplo genéricos: cada solución se diseña desde cero según tu negocio, objetivos y estilo visual.</p>
       </div>
     </div>
   </section>
@@ -1486,8 +1407,8 @@
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       nav.style.background = window.scrollY > 40
-        ? 'rgba(11,16,32,0.97)'
-        : 'rgba(11,16,32,0.85)';
+        ? 'rgba(247,252,255,0.98)'
+        : 'rgba(247,252,255,0.92)';
     });
 
     // ── Mobile menu
