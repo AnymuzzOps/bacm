@@ -111,11 +111,12 @@
       text-decoration: none;
       color: var(--white);
       display: flex;
-      align-items: center;
+      align-items: baseline;
       gap: 7px;
       line-height: 1;
       white-space: nowrap;
       flex-shrink: 0;
+      align-self: center;
     }
 
     .nav-logo small {
@@ -126,7 +127,7 @@
       text-transform: uppercase;
       color: var(--muted);
       margin-left: -2px;
-      transform: translateY(-5px);
+      transform: none;
     }
 
     .nav-logo::before {
@@ -137,6 +138,7 @@
       box-shadow: 0 0 8px var(--cyan);
       animation: blink 2.5s infinite;
       flex-shrink: 0;
+      align-self: center;
     }
 
     @keyframes blink {
@@ -1087,7 +1089,7 @@
       .nav-links .theme-toggle { margin: 8px 24px; }
       .nav-brand { max-width: 72%; }
       .nav-logo { font-size: 19px; gap: 6px; letter-spacing: 1.6px; }
-      .nav-logo small { font-size: 9px; margin-left: -2px; transform: translateY(-4px); }
+      .nav-logo small { font-size: 9px; margin-left: -2px; transform: none; }
       .nav-availability { font-size: 8px; padding: 3px 8px; }
       .nav-toggle { display: flex; }
 
