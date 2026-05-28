@@ -104,7 +104,7 @@
 
     .nav-logo {
       font-family: var(--ff-display);
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 800;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -112,18 +112,21 @@
       color: var(--white);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 7px;
       line-height: 1;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .nav-logo small {
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      font-weight: 600;
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      font-weight: 700;
       text-transform: uppercase;
       color: var(--muted);
-      margin-left: 4px;
-      transform: translateY(1px);
+      margin-left: -2px;
+      transform: translateY(-5px);
     }
 
     .nav-logo::before {
@@ -133,6 +136,7 @@
       border-radius: 50%;
       box-shadow: 0 0 8px var(--cyan);
       animation: blink 2.5s infinite;
+      flex-shrink: 0;
     }
 
     @keyframes blink {
@@ -1081,7 +1085,9 @@
       }
       .nav-links .nav-cta { margin: 8px 24px; display: block; text-align: center; }
       .nav-links .theme-toggle { margin: 8px 24px; }
-      .nav-brand { max-width: 70%; }
+      .nav-brand { max-width: 72%; }
+      .nav-logo { font-size: 19px; gap: 6px; letter-spacing: 1.6px; }
+      .nav-logo small { font-size: 9px; margin-left: -2px; transform: translateY(-4px); }
       .nav-availability { font-size: 8px; padding: 3px 8px; }
       .nav-toggle { display: flex; }
 
