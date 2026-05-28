@@ -3,35 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ARKAIUS Digital — Desarrollo web, automatización y bots para negocios. Soluciones digitales modernas para emprendedores y empresas." />
-  <meta name="keywords" content="desarrollo web, automatización, bots, landing page, Chile, ARKAIUS" />
-  <title>ARKAIUS Digital — Desarrollo Web & Automatización</title>
-
-  <!-- Fonts -->
+  <meta name="description" content="Arkaius Digital SpA — Soluciones tecnológicas para empresas, pymes y emprendedores. Desarrollo web, automatización con IA, bots, consultoría informática, redes y soporte tecnológico en Chile." />
+  <meta name="keywords" content="consultoría informática, desarrollo web, bots con IA, automatización, redes informáticas, soporte tecnológico, páginas web con IA, Chile, Santiago, Arkaius Digital" />
+  <title>Arkaius Digital SpA — Tecnología, IA, Redes & Desarrollo Web</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── RESET & TOKENS ─────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0B1020;
-      --bg-2:      #0F1428;
-      --bg-card:   #111827;
-      --blue:      #2563EB;
-      --cyan:      #06B6D4;
-      --cyan-dim:  rgba(6,182,212,0.12);
-      --white:     #F8FAFC;
-      --green:     #22C55E;
-      --green-dim: rgba(34,197,94,0.14);
-      --muted:     #94A3B8;
-      --border:    rgba(148,163,184,0.12);
-      --border-h:  rgba(6,182,212,0.35);
-      --ff-display:'Oxanium', sans-serif;
+      --bg:        #eaf4fb;
+      --bg-2:      #deedf8;
+      --bg-card:   #f4f9fe;
+      --blue:      #4c9fdc;
+      --cyan:      #6fc0ee;
+      --cyan-dim:  rgba(79,159,220,0.14);
+      --white:     #0f2b40;
+      --green:     #34c759;
+      --green-dim: rgba(52,199,89,0.14);
+      --muted:     #3f5f76;
+      --border:    rgba(49,122,173,0.26);
+      --border-h:  rgba(79,159,220,0.52);
+      --ff-display:'Space Grotesk', sans-serif;
       --ff-mono:   'JetBrains Mono', monospace;
       --nav-h:     72px;
+    }
+
+    body.dark-mode {
+      --bg:        #091422;
+      --bg-2:      #0d1b2e;
+      --bg-card:   #112238;
+      --blue:      #5eaee6;
+      --cyan:      #77cdf8;
+      --cyan-dim:  rgba(119,205,248,0.14);
+      --white:     #e8f4ff;
+      --green:     #34c759;
+      --green-dim: rgba(52,199,89,0.14);
+      --muted:     #9db6ca;
+      --border:    rgba(119,205,248,0.22);
+      --border-h:  rgba(119,205,248,0.5);
     }
 
     html { scroll-behavior: smooth; }
@@ -47,13 +59,9 @@
     }
 
     ::selection { background: var(--cyan); color: var(--bg); }
-
-    /* ─── SCROLLBAR ─────────────────────────────────── */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
-
-    /* ─── NOISE OVERLAY ─────────────────────────────── */
     body::before {
       content: '';
       position: fixed;
@@ -63,8 +71,6 @@
       z-index: 9999;
       opacity: 0.4;
     }
-
-    /* ─── GRID LINES (decorative) ───────────────────── */
     .grid-bg {
       position: absolute;
       inset: 0;
@@ -74,8 +80,6 @@
       background-size: 60px 60px;
       pointer-events: none;
     }
-
-    /* ─── NAV ────────────────────────────────────────── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -85,27 +89,45 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 60px;
-      background: rgba(11,16,32,0.85);
+      background: rgba(234,244,251,0.94);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       transition: background 0.3s;
     }
 
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
     .nav-logo {
       font-family: var(--ff-display);
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 800;
-      letter-spacing: 4px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       text-decoration: none;
       color: var(--white);
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: baseline;
+      gap: 7px;
+      line-height: 1;
+      white-space: nowrap;
+      flex-shrink: 0;
+      align-self: center;
     }
 
-    .nav-logo span {
-      color: var(--cyan);
+    .nav-logo small {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-left: -2px;
+      transform: none;
     }
 
     .nav-logo::before {
@@ -115,6 +137,8 @@
       border-radius: 50%;
       box-shadow: 0 0 8px var(--cyan);
       animation: blink 2.5s infinite;
+      flex-shrink: 0;
+      align-self: center;
     }
 
     @keyframes blink {
@@ -124,13 +148,14 @@
 
     .nav-links {
       display: flex;
-      gap: 40px;
+      gap: 18px;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
-      font-size: 13px;
-      letter-spacing: 0.14em;
+      font-size: 12px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
       text-decoration: none;
@@ -161,14 +186,62 @@
     }
 
     .nav-cta:hover {
-      background: #1d4ed8 !important;
+      background: #3b8fcd !important;
       transform: translateY(-1px) !important;
       color: var(--white) !important;
     }
 
     .nav-cta::after { display: none !important; }
 
-    /* Hamburger */
+    .theme-toggle {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--border-h);
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 116px;
+      white-space: nowrap;
+      padding: 8px 14px;
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .theme-toggle:hover {
+      background: var(--cyan-dim);
+      border-color: var(--cyan);
+      transform: translateY(-1px);
+    }
+
+    body.dark-mode nav { background: rgba(9,20,34,0.9); }
+
+    .nav-availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-dim);
+      border: 1px solid rgba(88,214,141,0.45);
+      border-radius: 100px;
+      padding: 3px 10px;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .nav-availability span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+    }
     .nav-toggle {
       display: none;
       flex-direction: column;
@@ -186,8 +259,6 @@
       border-radius: 2px;
       transition: all 0.3s;
     }
-
-    /* ─── BUTTONS ────────────────────────────────────── */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -211,7 +282,7 @@
     }
 
     .btn-primary:hover {
-      background: #1d4ed8;
+      background: #3b8fcd;
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(37,99,235,0.4);
     }
@@ -235,12 +306,10 @@
     }
 
     .btn-cyan:hover {
-      background: #0ea5e9;
+      background: #4c9fdc;
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(6,182,212,0.4);
     }
-
-    /* ─── SECTION COMMONS ────────────────────────────── */
     section { position: relative; }
 
     .container {
@@ -250,7 +319,7 @@
     }
 
     .section-wrap {
-      padding: 120px 0;
+      padding: 90px 0;
     }
 
     .section-label {
@@ -290,8 +359,6 @@
       line-height: 1.8;
       font-size: 16px;
     }
-
-    /* ─── HERO ───────────────────────────────────────── */
     #inicio {
       min-height: 100vh;
       display: flex;
@@ -322,35 +389,14 @@
       position: relative;
       z-index: 2;
       padding-top: var(--nav-h);
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--green-dim);
-      border: 1px solid rgba(34,197,94,0.45);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 32px;
-      animation: fadeUp 0.8s ease 0.1s both;
-    }
-
-    .hero-eyebrow span {
-      width: 6px; height: 6px;
-      background: var(--green);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--green);
-      animation: blink 2s infinite;
+      text-align: center;
+      max-width: 880px;
+      margin: 0 auto;
     }
 
     .hero-title {
       font-family: var(--ff-display);
-      font-size: clamp(54px, 8.5vw, 104px);
+      font-size: clamp(36px, 5.8vw, 68px);
       font-weight: 800;
       line-height: 0.92;
       letter-spacing: 0.02em;
@@ -363,20 +409,27 @@
     .hero-title .line-cyan  { color: var(--cyan); }
 
     .hero-sub {
-      margin-top: 28px;
+      margin: 22px auto 0;
       color: var(--muted);
-      max-width: 500px;
-      font-size: 17px;
+      max-width: 700px;
+      font-size: 16px;
       line-height: 1.75;
       animation: fadeUp 0.8s ease 0.35s both;
     }
 
     .hero-btns {
-      margin-top: 44px;
+      margin-top: 30px;
       display: flex;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
+      justify-content: center;
       animation: fadeUp 0.8s ease 0.45s both;
+    }
+
+    .hero-btns.mini-capsules .btn {
+      padding: 10px 20px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
     }
 
     .hero-stats {
@@ -388,7 +441,7 @@
 
     .stat-item .num {
       font-family: var(--ff-display);
-      font-size: 36px;
+      font-size: 30px;
       font-weight: 700;
       color: var(--white);
       line-height: 1;
@@ -406,8 +459,6 @@
       letter-spacing: 0.1em;
       margin-top: 4px;
     }
-
-    /* ─── SOBRE MÍ (dentro de inicio) ───────────────── */
     .about-strip {
       background: var(--bg-card);
       border-top: 1px solid var(--border);
@@ -466,8 +517,6 @@
       background: var(--cyan);
       flex-shrink: 0;
     }
-
-    /* ─── SERVICIOS ──────────────────────────────────── */
     #servicios { background: var(--bg); }
 
     .services-grid {
@@ -509,8 +558,8 @@
     .svc-card:hover::before { opacity: 1; }
 
     .svc-card.highlight {
-      border-color: rgba(37,99,235,0.4);
-      background: linear-gradient(135deg, #111827 0%, #0f1c3d 100%);
+      border-color: var(--border-h);
+      background: linear-gradient(145deg, #fafdff 0%, #eaf5ff 100%);
     }
 
     .svc-card.highlight::before { opacity: 1; }
@@ -567,8 +616,6 @@
       font-size: 14px;
       color: var(--muted);
     }
-
-    /* ─── PORTAFOLIO ─────────────────────────────────── */
     #portafolio { background: var(--bg-2); }
 
     .portfolio-grid {
@@ -612,17 +659,15 @@
 
     .pf-thumb .thumb-icon {
       position: absolute;
-      font-size: 48px;
+      font-size: 42px;
       opacity: 0.6;
       z-index: 2;
     }
-
-    /* Unique gradient per card */
-    .pf-t1 { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
-    .pf-t2 { background: linear-gradient(135deg, #1a0533, #16213e, #0f3460); }
-    .pf-t3 { background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77); }
-    .pf-t4 { background: linear-gradient(135deg, #020024, #090979, #00d4ff22); }
-    .pf-t5 { background: linear-gradient(135deg, #093028, #237a57, #1a472a44); }
+    .pf-t1 { background: linear-gradient(135deg, #cfe9fb, #b9dbf3, #9fcde9); }
+    .pf-t2 { background: linear-gradient(135deg, #d9efff, #c5e4fa, #add7f2); }
+    .pf-t3 { background: linear-gradient(135deg, #d4ecfb, #bddff4, #a5d1ea); }
+    .pf-t4 { background: linear-gradient(135deg, #e3f4ff, #cde7f8, #b2d9ef); }
+    .pf-t5 { background: linear-gradient(135deg, #d7efff, #bee0f6, #a4d2eb); }
 
     .pf-body { padding: 24px; }
 
@@ -670,8 +715,6 @@
     }
 
     .pf-link:hover { gap: 10px; }
-
-    /* ─── PRECIOS ─────────────────────────────────────── */
     #precios { background: var(--bg); }
 
     .pricing-grid {
@@ -699,8 +742,8 @@
     }
 
     .pricing-card.popular {
-      border-color: var(--blue);
-      background: linear-gradient(145deg, #111827, #0f1e3e);
+      border-color: var(--border-h);
+      background: linear-gradient(145deg, #fbfeff, #e9f4fe);
     }
 
     .popular-badge {
@@ -801,8 +844,6 @@
       padding: 16px 24px;
       line-height: 1.7;
     }
-
-    /* ─── CONTACTO ─────────────────────────────────── */
     #contacto { background: var(--bg-2); }
 
     .contact-grid {
@@ -853,8 +894,6 @@
       font-size: 18px;
       flex-shrink: 0;
     }
-
-    /* Form */
     .contact-form {
       display: flex;
       flex-direction: column;
@@ -899,10 +938,8 @@
     .form-group textarea { min-height: 120px; }
 
     .form-group select option { background: var(--bg-card); }
-
-    /* ─── CTA BLOCK ──────────────────────────────────── */
     .cta-section {
-      background: linear-gradient(135deg, #0d1535 0%, #0b1020 50%, #061525 100%);
+      background: linear-gradient(135deg, #edf7ff 0%, #e3f2fd 50%, #d9ecfa 100%);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       text-align: center;
@@ -924,7 +961,7 @@
 
     .cta-section h2 {
       font-family: var(--ff-display);
-      font-size: clamp(36px, 5vw, 56px);
+      font-size: clamp(32px, 4.6vw, 48px);
       font-weight: 800;
       letter-spacing: -1px;
       line-height: 1.1;
@@ -947,8 +984,6 @@
       flex-wrap: wrap;
       position: relative;
     }
-
-    /* ─── FOOTER ─────────────────────────────────────── */
     footer {
       background: var(--bg);
       border-top: 1px solid var(--border);
@@ -997,8 +1032,6 @@
       color: var(--muted);
       letter-spacing: 0.06em;
     }
-
-    /* ─── ANIMATIONS ─────────────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -1012,7 +1045,19 @@
 
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── RESPONSIVE ─────────────────────────────────── */
+    body.dark-mode .svc-card.highlight {
+      background: linear-gradient(145deg, #0f1f34 0%, #142844 100%);
+      border-color: rgba(119,205,248,0.48);
+    }
+
+    body.dark-mode .pricing-card.popular {
+      background: linear-gradient(145deg, #0f1f34 0%, #142844 100%);
+      border-color: rgba(119,205,248,0.48);
+    }
+
+    body.dark-mode .cta-section {
+      background: linear-gradient(135deg, #0c1a2d 0%, #10213a 50%, #132845 100%);
+    }
     @media (max-width: 1024px) {
       .services-grid    { grid-template-columns: repeat(2, 1fr); }
       .portfolio-grid   { grid-template-columns: repeat(2, 1fr); }
@@ -1028,7 +1073,7 @@
         position: absolute;
         top: var(--nav-h);
         left: 0; right: 0;
-        background: rgba(11,16,32,0.98);
+        background: var(--bg-card);
         flex-direction: column;
         gap: 0;
         border-bottom: 1px solid var(--border);
@@ -1041,6 +1086,11 @@
         border-radius: 0;
       }
       .nav-links .nav-cta { margin: 8px 24px; display: block; text-align: center; }
+      .nav-links .theme-toggle { margin: 8px 24px; }
+      .nav-brand { max-width: 72%; }
+      .nav-logo { font-size: 19px; gap: 6px; letter-spacing: 1.6px; }
+      .nav-logo small { font-size: 9px; margin-left: -2px; transform: none; }
+      .nav-availability { font-size: 8px; padding: 3px 8px; }
       .nav-toggle { display: flex; }
 
       .container { padding: 0 24px; }
@@ -1052,353 +1102,306 @@
     }
   </style>
 </head>
-<body>
-
-  <!-- ═══════════════════════════════════════ NAV -->
+<body class="dark-mode">
   <nav id="navbar" role="navigation" aria-label="Navegación principal">
-    <a href="#inicio" class="nav-logo" aria-label="ARKAIUS Digital — Inicio">
-      ARKAI<span>US</span>
-    </a>
+    <div class="nav-brand">
+      <a href="#inicio" class="nav-logo" aria-label="Arkaius Digital SpA — Inicio">ARKAIUS <small>Digital</small></a>
+      <div class="nav-availability"><span aria-hidden="true"></span>Disponible para nuevos proyectos</div>
+    </div>
     <ul class="nav-links" id="navLinks" role="list">
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#portafolio">Portafolio</a></li>
-      <li><a href="#precios">Precios</a></li>
-      <li><a href="#contacto" class="nav-cta">Cotizar →</a></li>
+      <li><a href="#portafolio">Enfoque</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#precios">Valores</a></li>
+      <li><button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar modo de color">☀️ Claro</button></li>
+      <li><a href="#contacto" class="nav-cta">Diagnóstico →</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
-
-  <!-- ═══════════════════════════════════════ INICIO / HERO -->
   <section id="inicio" aria-label="Inicio">
     <div class="grid-bg"></div>
     <div class="hero-orb orb-1"></div>
     <div class="hero-orb orb-2"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow">
-          <span aria-hidden="true"></span>
-          Disponible para nuevos proyectos
-        </div>
         <h1 class="hero-title">
-          <div>Desarrollo</div>
-          <div class="line-cyan">web & bots</div>
-          <div class="line-muted">para negocios.</div>
+          <div>Soluciones digitales</div>
+          <div class="line-cyan">con IA, redes</div>
+          <div class="line-muted">y desarrollo web.</div>
         </h1>
         <p class="hero-sub">
-          Creo páginas web modernas, automatizaciones y bots que ayudan a emprendedores y negocios a mejorar su presencia digital, ahorrar tiempo y captar más clientes.
+          Ayudamos a negocios, profesionales y pymes a digitalizar sus servicios, automatizar procesos y fortalecer su infraestructura tecnológica con soluciones claras, modernas y escalables.
         </p>
         <div class="hero-btns">
-          <a href="#servicios" class="btn btn-primary">Ver servicios →</a>
-          <a href="#contacto" class="btn btn-outline">Solicitar cotización</a>
+          <a href="#servicios" class="btn btn-primary">Explorar soluciones →</a>
+          <a href="#contacto" class="btn btn-outline">Agendar diagnóstico</a>
         </div>
-        <div class="hero-stats" aria-label="Estadísticas">
-          <div class="stat-item">
-            <div class="num">24<em>h</em></div>
-            <div class="lbl">Respuesta máx.</div>
-          </div>
-          <div class="stat-item">
-            <div class="num">100<em>%</em></div>
-            <div class="lbl">Orientado a resultados</div>
-          </div>
-          <div class="stat-item">
-            <div class="num">IA<em>+</em></div>
-            <div class="lbl">En cada solución</div>
-          </div>
+        <div class="hero-btns mini-capsules" aria-label="Servicios clave">
+          <a href="#servicios" class="btn btn-outline">Desarrollo web</a>
+          <a href="#servicios" class="btn btn-outline">Bots con IA</a>
+          <a href="#servicios" class="btn btn-outline">Redes informáticas</a>
+          <a href="#servicios" class="btn btn-outline">Automatización</a>
+          <a href="#servicios" class="btn btn-outline">Soporte TI</a>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ═══════════════════════════════════════ SOBRE MÍ (strip) -->
-  <div class="about-strip" aria-label="Sobre mí">
+  <div class="about-strip" aria-label="Sobre Arkaius">
     <div class="container">
       <div class="about-inner">
         <div class="about-left reveal">
-          <div class="section-label">Sobre mí</div>
-          <h3>Tecnología al servicio<br>de tu negocio.</h3>
+          <div class="section-label">Sobre Arkaius</div>
+          <h3>Tecnología aplicada<br>a negocios reales.</h3>
           <p>
-            Soy profesional del área tecnológica con enfoque en desarrollo web y automatización. Ayudo a negocios y emprendedores a digitalizar sus procesos con soluciones modernas, funcionales y orientadas a resultados.
+            Arkaius Digital SpA nace para acercar la tecnología a empresas, pymes y emprendedores que necesitan soluciones prácticas, modernas y fáciles de implementar.
             <br><br>
-            Trabajo de forma directa, sin intermediarios ni estructuras corporativas — lo que significa comunicación clara, tiempos reales y compromiso total con cada proyecto.
+            Integramos desarrollo web, automatización con inteligencia artificial, consultoría informática, redes y soporte tecnológico para ayudar a que cada negocio trabaje mejor, responda más rápido y tome decisiones con mayor claridad.
+            <br><br>
+            Trabajamos de forma directa, cercana y estratégica: analizamos lo que necesitas, proponemos una solución realista y construimos herramientas pensadas para el uso diario, no solo para verse bien.
           </p>
         </div>
         <div class="about-right reveal">
-          <div class="skill-pill"><span class="dot"></span>HTML / CSS / JS</div>
-          <div class="skill-pill"><span class="dot"></span>Diseño responsive</div>
-          <div class="skill-pill"><span class="dot"></span>Automatización</div>
+          <div class="skill-pill"><span class="dot"></span>Desarrollo web</div>
           <div class="skill-pill"><span class="dot"></span>Bots con IA</div>
-          <div class="skill-pill"><span class="dot"></span>SEO básico</div>
-          <div class="skill-pill"><span class="dot"></span>GitHub Pages</div>
-          <div class="skill-pill"><span class="dot"></span>WhatsApp API</div>
-          <div class="skill-pill"><span class="dot"></span>Integraciones</div>
+          <div class="skill-pill"><span class="dot"></span>Automatización</div>
+          <div class="skill-pill"><span class="dot"></span>Consultoría TI</div>
+          <div class="skill-pill"><span class="dot"></span>Redes informáticas</div>
+          <div class="skill-pill"><span class="dot"></span>Soporte tecnológico</div>
+          <div class="skill-pill"><span class="dot"></span>Integraciones digitales</div>
+          <div class="skill-pill"><span class="dot"></span>Soluciones a medida</div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- ═══════════════════════════════════════ SERVICIOS -->
   <section id="servicios" aria-label="Servicios">
     <div class="container section-wrap">
       <div class="reveal">
         <div class="section-label">Servicios</div>
-        <h2 class="section-title">Lo que puedo<br><em>construir para ti.</em></h2>
-        <p class="section-sub">Cada servicio está diseñado para generar resultados concretos — más visibilidad, menos tiempo perdido, más clientes.</p>
+        <h2 class="section-title">Soluciones para<br><em>digitalizar tu negocio.</em></h2>
+        <p class="section-sub">Diseñamos e implementamos soluciones tecnológicas para mejorar tu presencia digital, automatizar tareas, ordenar procesos y fortalecer la infraestructura de tu negocio.</p>
       </div>
       <div class="services-grid" role="list">
-
-        <article class="svc-card reveal" role="listitem">
-          <div class="svc-icon" aria-hidden="true">🌐</div>
-          <h3>Landing Page</h3>
-          <p>Página de una sola sección, ideal para mostrar un negocio, servicio o producto de forma profesional y directa. Orientada a conversión.</p>
-          <div class="svc-price">
-            <span class="desde">Desde</span>
-            <span class="valor"><span class="moneda">$</span>150.000</span>
-            <span class="desde">CLP</span>
-          </div>
-        </article>
-
         <article class="svc-card highlight reveal" role="listitem">
-          <div class="svc-icon" aria-hidden="true">💻</div>
-          <h3>Sitio Web Profesional</h3>
-          <p>Sitio de 3 a 5 secciones para negocios que necesitan una presencia más completa: información, formularios y estructura profesional.</p>
+          <div class="svc-icon" aria-hidden="true">🌐</div>
+          <h3>Desarrollo Web Profesional</h3>
+          <p>Sitios web modernos, rápidos y responsivos para presentar tu negocio, captar clientes y entregar una experiencia clara desde cualquier dispositivo.</p>
           <div class="svc-price">
             <span class="desde">Desde</span>
             <span class="valor"><span class="moneda">$</span>300.000</span>
             <span class="desde">CLP</span>
           </div>
         </article>
-
+        <article class="svc-card reveal" role="listitem">
+          <div class="svc-icon" aria-hidden="true">🚀</div>
+          <h3>Landing Pages</h3>
+          <p>Páginas enfocadas en conversión para promocionar servicios, campañas, productos o emprendimientos con una estructura directa y profesional.</p>
+          <div class="svc-price">
+            <span class="desde">Desde</span>
+            <span class="valor"><span class="moneda">$</span>150.000</span>
+            <span class="desde">CLP</span>
+          </div>
+        </article>
         <article class="svc-card reveal" role="listitem">
           <div class="svc-icon" aria-hidden="true">⚙️</div>
-          <h3>Automatización</h3>
-          <p>Automatización de tareas repetitivas, formularios conectados, envío de datos e integraciones para ahorrar tiempo y reducir errores.</p>
+          <h3>Automatización con IA</h3>
+          <p>Flujos automáticos para reducir tareas repetitivas, ordenar solicitudes, conectar formularios, enviar respuestas y mejorar la gestión diaria del negocio.</p>
           <div class="svc-price">
             <span class="desde">Desde</span>
             <span class="valor"><span class="moneda">$</span>180.000</span>
             <span class="desde">CLP</span>
           </div>
         </article>
-
         <article class="svc-card reveal" role="listitem">
           <div class="svc-icon" aria-hidden="true">🤖</div>
-          <h3>Bots para Negocios</h3>
-          <p>Bots para atención automática, respuestas frecuentes, captación de clientes y automatización de interacciones en WhatsApp o Telegram.</p>
+          <h3>Bots y Asistentes Virtuales</h3>
+          <p>Bots para atención, ventas, preguntas frecuentes, captación de clientes y soporte inicial en canales como WhatsApp, web o plataformas digitales.</p>
           <div class="svc-price">
             <span class="desde">Desde</span>
             <span class="valor"><span class="moneda">$</span>200.000</span>
             <span class="desde">CLP</span>
           </div>
         </article>
-
+        <article class="svc-card reveal" role="listitem">
+          <div class="svc-icon" aria-hidden="true">🛜</div>
+          <h3>Redes e Infraestructura</h3>
+          <p>Consultoría, instalación, revisión y mejora de redes informáticas para oficinas, negocios y espacios de trabajo que necesitan conectividad estable y segura.</p>
+          <div class="svc-price">
+            <span class="desde">Desde</span>
+            <span class="valor">A evaluar</span>
+            <span class="desde">según proyecto</span>
+          </div>
+        </article>
         <article class="svc-card reveal" role="listitem">
           <div class="svc-icon" aria-hidden="true">🛠️</div>
-          <h3>Soporte & Mantención</h3>
-          <p>Actualizaciones, soporte técnico, ajustes, mejoras y acompañamiento para mantener tu sitio funcionando correctamente.</p>
+          <h3>Soporte y Consultoría TI</h3>
+          <p>Acompañamiento tecnológico para diagnosticar problemas, mejorar procesos, elegir herramientas, mantener sistemas y tomar mejores decisiones digitales.</p>
           <div class="svc-price">
             <span class="desde">Desde</span>
             <span class="valor"><span class="moneda">$</span>50.000</span>
             <span class="desde">CLP / mes</span>
           </div>
         </article>
-
-        <!-- CTA card -->
         <article class="svc-card reveal" role="listitem" style="justify-content:center; align-items:center; text-align:center; border-style:dashed; background:transparent;">
           <div style="font-size:32px; margin-bottom:16px;">💬</div>
-          <h3 style="margin-bottom:12px;">¿Proyecto personalizado?</h3>
-          <p>Si necesitas algo específico, hablemos. Cada negocio es distinto.</p>
-          <a href="#contacto" class="btn btn-outline" style="margin-top:20px;">Consultar →</a>
+          <h3 style="margin-bottom:12px;">¿Necesitas algo más específico?</h3>
+          <p>Si tu proyecto combina web, IA, redes, soporte o automatización, podemos armar una solución a medida según tus objetivos.</p>
+          <a href="#contacto" class="btn btn-outline" style="margin-top:20px;">Evaluar proyecto →</a>
         </article>
-
       </div>
     </div>
   </section>
-
-  <!-- ═══════════════════════════════════════ PORTAFOLIO -->
-  <section id="portafolio" aria-label="Portafolio">
+  <section id="portafolio" aria-label="Enfoque de trabajo">
     <div class="container section-wrap">
       <div class="reveal">
-        <div class="section-label">Portafolio</div>
-        <h2 class="section-title">Proyectos<br><em>de ejemplo.</em></h2>
-        <p class="section-sub">Ejemplos representativos del tipo de soluciones que construyo. Cada proyecto es diseñado a medida para el negocio del cliente.</p>
+        <div class="section-label">Enfoque de trabajo</div>
+        <h2 class="section-title">Soluciones pensadas<br><em>para cada operación.</em></h2>
+        <p class="section-sub">No trabajamos con plantillas genéricas. Cada proyecto se analiza según el tipo de negocio, sus procesos, su nivel tecnológico actual y los objetivos que quiere alcanzar.</p>
       </div>
       <div class="portfolio-grid" role="list">
-
         <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb pf-t1" aria-hidden="true">
-            <span class="thumb-icon">🍽️</span>
-          </div>
           <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Landing Page</span></div>
-            <h3>Restaurante Don Carlo</h3>
-            <p>Landing page moderna para restaurante. Menú destacado, galería, ubicación y botón de reserva directo por WhatsApp.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Restaurante Don Carlo">Ver demo →</a>
+            <div class="pf-meta"><span class="pf-tag">Web</span></div>
+            <h3>Presencia digital</h3>
+            <p>Sitios y landing pages diseñados para explicar mejor lo que haces, recibir contactos y entregar una imagen profesional.</p>
           </div>
         </article>
-
         <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb pf-t2" aria-hidden="true">
-            <span class="thumb-icon">🦷</span>
-          </div>
           <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Web Profesional</span></div>
-            <h3>Clínica Dental Sonría</h3>
-            <p>Sitio web completo para clínica dental. Secciones de servicios, equipo, testimonios y formulario de cita en línea.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Clínica Dental">Ver demo →</a>
+            <div class="pf-meta"><span class="pf-tag">IA</span></div>
+            <h3>Procesos automatizados</h3>
+            <p>Flujos inteligentes para responder, ordenar información, derivar solicitudes y disminuir tareas manuales.</p>
           </div>
         </article>
-
         <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb pf-t3" aria-hidden="true">
-            <span class="thumb-icon">✂️</span>
-          </div>
           <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Landing Page</span></div>
-            <h3>Barbería Urban Cut</h3>
-            <p>Landing con estética oscura y premium para barbería. Servicios, precios, galería de trabajos y agenda rápida.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Barbería">Ver demo →</a>
+            <div class="pf-meta"><span class="pf-tag">Redes</span></div>
+            <h3>Infraestructura tecnológica</h3>
+            <p>Diagnóstico, instalación y mejora de redes para que la operación diaria sea más estable, conectada y segura.</p>
           </div>
         </article>
-
-        <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb pf-t4" aria-hidden="true">
-            <span class="thumb-icon">🤖</span>
-          </div>
-          <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Bot IA</span></div>
-            <h3>Bot de Reservas Automático</h3>
-            <p>Bot para WhatsApp que gestiona reservas, consulta disponibilidad y envía confirmaciones automáticas sin intervención humana.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Bot de Reservas">Ver demo →</a>
-          </div>
-        </article>
-
-        <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb pf-t5" aria-hidden="true">
-            <span class="thumb-icon">⚡</span>
-          </div>
-          <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Automatización</span></div>
-            <h3>Captación de Leads Automática</h3>
-            <p>Formulario web conectado a base de datos, con notificación automática por correo y WhatsApp al recibir cada consulta.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Automatización">Ver demo →</a>
-          </div>
-        </article>
-
-        <article class="pf-card reveal" role="listitem">
-          <div class="pf-thumb" style="background: linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);" aria-hidden="true">
-            <span class="thumb-icon">📊</span>
-          </div>
-          <div class="pf-body">
-            <div class="pf-meta"><span class="pf-tag">Automatización</span></div>
-            <h3>Reportes Automáticos</h3>
-            <p>Sistema que recopila datos de formularios y los organiza en reportes semanales enviados automáticamente al equipo.</p>
-            <a href="#contacto" class="pf-link" aria-label="Ver demo Reportes Automáticos">Ver demo →</a>
-          </div>
-        </article>
-
       </div>
     </div>
   </section>
-
-  <!-- ═══════════════════════════════════════ PRECIOS -->
-  <section id="precios" aria-label="Precios">
+  <section id="proceso" aria-label="Proceso de trabajo">
     <div class="container section-wrap">
       <div class="reveal">
-        <div class="section-label">Precios</div>
-        <h2 class="section-title">Planes <em>referenciales.</em></h2>
-        <p class="section-sub">Valores base para orientarte. El precio final depende del alcance, integraciones y nivel de personalización de tu proyecto.</p>
+        <div class="section-label">Proceso</div>
+        <h2 class="section-title">De la idea<br><em>a una solución funcional.</em></h2>
+        <p class="section-sub">Trabajamos con una metodología simple y clara para que cada proyecto tenga dirección, tiempos realistas y resultados concretos.</p>
       </div>
-
+      <div class="services-grid" role="list">
+        <article class="svc-card reveal" role="listitem">
+          <div class="svc-icon" aria-hidden="true">01</div>
+          <h3>Diagnóstico</h3>
+          <p>Revisamos tu necesidad, tus procesos actuales y el objetivo del proyecto para definir qué solución realmente conviene implementar.</p>
+        </article>
+        <article class="svc-card reveal" role="listitem">
+          <div class="svc-icon" aria-hidden="true">02</div>
+          <h3>Propuesta</h3>
+          <p>Ordenamos el alcance, funcionalidades, tiempos y valores para que sepas exactamente qué se va a construir.</p>
+        </article>
+        <article class="svc-card reveal" role="listitem">
+          <div class="svc-icon" aria-hidden="true">03</div>
+          <h3>Implementación</h3>
+          <p>Desarrollamos, configuramos e integramos la solución, manteniendo comunicación clara durante todo el proceso.</p>
+        </article>
+        <article class="svc-card reveal" role="listitem">
+          <div class="svc-icon" aria-hidden="true">04</div>
+          <h3>Soporte y mejora</h3>
+          <p>Probamos, ajustamos y acompañamos la puesta en marcha para que la solución funcione en el uso real del negocio.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="precios" aria-label="Valores referenciales">
+    <div class="container section-wrap">
+      <div class="reveal">
+        <div class="section-label">Valores</div>
+        <h2 class="section-title">Valores <em>referenciales.</em></h2>
+        <p class="section-sub">Cada proyecto tiene necesidades distintas. Estos valores sirven como referencia inicial y pueden variar según alcance, urgencia, integraciones, soporte requerido y nivel de personalización.</p>
+      </div>
       <div class="pricing-grid" role="list">
-
         <article class="pricing-card reveal" role="listitem">
-          <h3>Landing Básica</h3>
-          <p class="tagline">Una página completa y profesional para presentar tu negocio.</p>
+          <h3>Inicio Digital</h3>
+          <p class="tagline">Ideal para emprendedores o negocios que necesitan comenzar con una presencia profesional.</p>
           <div class="price-block">
             <span class="desde-label">Desde</span>
             <div class="amount"><span class="currency">$</span>150.000</div>
           </div>
-          <ul class="features" aria-label="Características del plan Landing Básica">
-            <li>1 página responsive</li>
-            <li>Diseño personalizado</li>
-            <li>Formulario de contacto</li>
+          <ul class="features" aria-label="Características del plan Inicio Digital">
+            <li>Landing page o sitio simple</li>
+            <li>Diseño responsive</li>
+            <li>Formulario o botón de contacto</li>
             <li>Botón de WhatsApp</li>
-            <li>Hospedaje incluido</li>
+            <li>Estructura básica de SEO</li>
           </ul>
           <a href="#contacto" class="btn btn-outline" style="text-align:center; justify-content:center;">Solicitar →</a>
         </article>
-
         <article class="pricing-card popular reveal" role="listitem" aria-label="Plan más popular">
           <div class="popular-badge" aria-label="Plan más popular">Más solicitado</div>
-          <h3>Web Profesional</h3>
-          <p class="tagline">Presencia digital completa para negocios que quieren destacar.</p>
+          <h3>Negocio Digital</h3>
+          <p class="tagline">Para empresas y pymes que necesitan una solución más completa, ordenada y escalable.</p>
           <div class="price-block">
             <span class="desde-label">Desde</span>
             <div class="amount"><span class="currency">$</span>300.000</div>
           </div>
-          <ul class="features" aria-label="Características del plan Web Profesional">
+          <ul class="features" aria-label="Características del plan Negocio Digital">
+            <li>Sitio web profesional</li>
             <li>3 a 5 secciones</li>
-            <li>Formulario y contacto</li>
-            <li>Diseño personalizado</li>
-            <li>SEO básico incluido</li>
-            <li>Google Analytics</li>
+            <li>Formulario de contacto</li>
+            <li>Integraciones básicas</li>
+            <li>Google Analytics o medición inicial</li>
             <li>1 mes de soporte</li>
           </ul>
           <a href="#contacto" class="btn btn-cyan" style="text-align:center; justify-content:center;">Solicitar →</a>
         </article>
-
         <article class="pricing-card reveal" role="listitem">
-          <h3>Automatización / Bot</h3>
-          <p class="tagline">Flujos automáticos e inteligentes para ahorrar tiempo y captar más.</p>
+          <h3>Automatización / IA</h3>
+          <p class="tagline">Para negocios que quieren ahorrar tiempo, responder mejor y automatizar tareas repetitivas.</p>
           <div class="price-block">
             <span class="desde-label">Desde</span>
             <div class="amount"><span class="currency">$</span>180.000</div>
           </div>
-          <ul class="features" aria-label="Características del plan Automatización">
-            <li>Flujo automatizado básico</li>
-            <li>Integración inicial</li>
+          <ul class="features" aria-label="Características del plan Automatización / IA">
+            <li>Flujo automatizado inicial</li>
+            <li>Bot o asistente básico</li>
+            <li>Integración con formulario, WhatsApp o correo</li>
             <li>Configuración personalizada</li>
-            <li>WhatsApp / Telegram</li>
             <li>Pruebas y ajustes incluidos</li>
           </ul>
           <a href="#contacto" class="btn btn-outline" style="text-align:center; justify-content:center;">Solicitar →</a>
         </article>
-
       </div>
-
       <p class="pricing-note reveal" role="note">
-        Los valores publicados son referenciales y pueden variar según requerimientos, integraciones y nivel de personalización del proyecto.
+        Los valores publicados son referenciales. Todo proyecto se cotiza según alcance, funcionalidades, integraciones, tiempos de entrega, soporte requerido y condiciones técnicas.
       </p>
     </div>
   </section>
-
-  <!-- ═══════════════════════════════════════ CTA BLOCK -->
   <div class="cta-section" aria-label="Llamada a la acción">
     <div class="orb-cta" aria-hidden="true"></div>
     <div class="container">
-      <h2 class="reveal">¿Necesitas una web o<br><span style="color:var(--cyan)">automatizar tu negocio?</span></h2>
-      <p class="reveal">Trabajemos en una solución moderna, funcional y adaptada a tus objetivos. Sin compromisos — la primera consulta es gratis.</p>
+      <h2 class="reveal">¿Tu negocio necesita<br><span style="color:var(--cyan)">una solución tecnológica real?</span></h2>
+      <p class="reveal">Podemos ayudarte a crear tu sitio web, automatizar procesos, implementar bots con IA, mejorar tu red o definir una estrategia tecnológica clara para tu negocio.</p>
       <div class="cta-btns reveal">
-        <a href="#contacto" class="btn btn-cyan">Solicitar cotización →</a>
+        <a href="#contacto" class="btn btn-cyan">Solicitar diagnóstico →</a>
         <a href="https://wa.me/56900000000" class="btn btn-outline" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
       </div>
     </div>
   </div>
-
-  <!-- ═══════════════════════════════════════ CONTACTO -->
   <section id="contacto" aria-label="Contacto">
     <div class="container section-wrap">
       <div class="reveal">
         <div class="section-label">Contacto</div>
-        <h2 class="section-title">Hablemos de<br><em>tu proyecto.</em></h2>
+        <h2 class="section-title">Hablemos de<br><em>tu necesidad tecnológica.</em></h2>
       </div>
 
       <div class="contact-grid">
         <div class="contact-info reveal">
-          <h3>Cuéntame qué necesitas.</h3>
-          <p>Te responderé con una propuesta clara, sin términos confusos y en menos de 24 horas. La primera consulta no tiene ningún costo.</p>
+          <h3>Cuéntanos qué quieres mejorar, crear o automatizar.</h3>
+          <p>Te responderemos con una orientación clara y una propuesta inicial según el tipo de proyecto: web, IA, automatización, redes, soporte o consultoría informática.</p>
           <div class="contact-direct">
             <div class="contact-row">
               <div class="icon" aria-hidden="true">✉️</div>
@@ -1431,17 +1434,19 @@
             <label for="servicio">Servicio de interés</label>
             <select id="servicio" name="servicio">
               <option value="">Selecciona un servicio...</option>
-              <option value="landing">Landing Page — desde $150.000</option>
-              <option value="web">Web Profesional — desde $300.000</option>
-              <option value="automatizacion">Automatización — desde $180.000</option>
-              <option value="bot">Bot con IA — desde $200.000</option>
-              <option value="soporte">Soporte / Mantención</option>
+              <option value="landing">Landing Page</option>
+              <option value="web">Sitio Web Profesional</option>
+              <option value="automatizacion">Automatización con IA</option>
+              <option value="bot">Bot o asistente virtual</option>
+              <option value="redes">Redes e infraestructura</option>
+              <option value="consultoria">Consultoría informática</option>
+              <option value="soporte">Soporte / Mantención TI</option>
               <option value="otro">Otro / No lo sé aún</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="mensaje">Cuéntame sobre tu proyecto</label>
-            <textarea id="mensaje" name="mensaje" placeholder="¿Qué necesitas? ¿Tienes plazo o presupuesto estimado?" required aria-required="true"></textarea>
+            <label for="mensaje">Cuéntanos sobre tu necesidad</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas mejorar, crear o automatizar. Puedes incluir tu rubro, plazo, presupuesto estimado o problema actual." required aria-required="true"></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
             Enviar mensaje →
@@ -1451,26 +1456,22 @@
       </div>
     </div>
   </section>
-
-  <!-- ═══════════════════════════════════════ FOOTER -->
   <footer role="contentinfo">
     <div class="container">
       <div class="footer-inner">
-        <a href="#inicio" class="footer-logo" aria-label="ARKAIUS Digital">ARKAI<em>US</em></a>
+        <a href="#inicio" class="footer-logo" aria-label="Arkaius Digital SpA">ARKAIUS</a>
         <ul class="footer-links" role="list">
           <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#portafolio">Portafolio</a></li>
-          <li><a href="#precios">Precios</a></li>
+          <li><a href="#portafolio">Enfoque</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#precios">Valores</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
-        <span class="footer-copy">© 2025 ARKAIUS Digital</span>
+        <span class="footer-copy">© 2026 Arkaius Digital SpA — Soluciones tecnológicas</span>
       </div>
     </div>
   </footer>
-
-  <!-- ═══════════════════════════════════════ JAVASCRIPT -->
   <script>
-    // ── Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -1481,42 +1482,62 @@
       });
     }, { threshold: 0.08 });
     reveals.forEach(el => revealObserver.observe(el));
-
-    // ── Nav scroll shadow
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
+      const dark = document.body.classList.contains('dark-mode');
       nav.style.background = window.scrollY > 40
-        ? 'rgba(11,16,32,0.97)'
-        : 'rgba(11,16,32,0.85)';
+        ? (dark ? 'rgba(9,20,34,0.97)' : 'rgba(234,244,251,0.98)')
+        : (dark ? 'rgba(9,20,34,0.9)' : 'rgba(234,244,251,0.94)');
     });
 
-    // ── Mobile menu
+    const themeToggle = document.getElementById('themeToggle');
+    const applyTheme = (mode) => {
+      const dark = mode === 'dark';
+      document.body.classList.toggle('dark-mode', dark);
+      themeToggle.textContent = dark ? '☀️ Claro' : '🌙 Oscuro';
+      nav.style.background = window.scrollY > 40
+        ? (dark ? 'rgba(9,20,34,0.97)' : 'rgba(234,244,251,0.98)')
+        : (dark ? 'rgba(9,20,34,0.9)' : 'rgba(234,244,251,0.94)');
+    };
+
+    const defaultTheme = 'dark';
+    applyTheme(defaultTheme);
+    themeToggle.addEventListener('click', () => {
+      const next = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+      applyTheme(next);
+    });
     const toggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
     toggle.addEventListener('click', () => {
       const open = navLinks.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open);
     });
-
-    // Close mobile menu on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
       });
     });
-
-    // ── Form
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const msg = document.getElementById('formMsg');
+      if (!this.checkValidity()) {
+        this.reportValidity();
+        return;
+      }
+      const nombre = document.getElementById('nombre').value.trim();
+      const correo = document.getElementById('correo').value.trim();
+      const servicioSelect = document.getElementById('servicio');
+      const servicio = servicioSelect.options[servicioSelect.selectedIndex].text || 'No especificado';
+      const mensaje = document.getElementById('mensaje').value.trim();
+      const whatsappNumber = '56900000000';
+      const text = `Hola Arkaius Digital, soy ${nombre}. Mi correo es ${correo}. Me interesa: ${servicio}. Detalle: ${mensaje}`;
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
       msg.style.display = 'block';
-      msg.textContent = '✓ Mensaje enviado. Te contactaré en menos de 24 horas.';
-      this.reset();
-      setTimeout(() => { msg.style.display = 'none'; }, 5000);
+      msg.textContent = '✓ Se abrirá WhatsApp con tu solicitud. Si no se abre automáticamente, escríbenos directamente.';
+      setTimeout(() => { msg.style.display = 'none'; }, 7000);
     });
-
-    // ── Active nav link on scroll
     const sections = document.querySelectorAll('section[id], div[id="contacto"]');
     const navAnchors = document.querySelectorAll('.nav-links a:not(.nav-cta)');
     const observer = new IntersectionObserver((entries) => {
