@@ -142,7 +142,7 @@
 
     .nav-links {
       display: flex;
-      gap: 40px;
+      gap: 28px;
       list-style: none;
       align-items: center;
     }
@@ -192,6 +192,11 @@
       color: var(--white);
       border: 1px solid var(--border-h);
       border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 116px;
+      white-space: nowrap;
       padding: 8px 14px;
       font-family: var(--ff-mono);
       font-size: 11px;
@@ -206,6 +211,8 @@
       border-color: var(--cyan);
       transform: translateY(-1px);
     }
+
+    body.dark-mode nav { background: rgba(9,20,34,0.9); }
 
     .nav-availability {
       display: inline-flex;
@@ -1073,6 +1080,7 @@
         border-radius: 0;
       }
       .nav-links .nav-cta { margin: 8px 24px; display: block; text-align: center; }
+      .nav-links .theme-toggle { margin: 8px 24px; }
       .nav-brand { max-width: 70%; }
       .nav-availability { font-size: 8px; padding: 3px 8px; }
       .nav-toggle { display: flex; }
@@ -1086,7 +1094,7 @@
     }
   </style>
 </head>
-<body>
+<body class="dark-mode">
   <nav id="navbar" role="navigation" aria-label="Navegación principal">
     <div class="nav-brand">
       <a href="#inicio" class="nav-logo" aria-label="ARKAIUS Digital — Inicio">ARKAIUS <small>Digital</small></a>
@@ -1097,7 +1105,7 @@
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#portafolio">Portafolio</a></li>
       <li><a href="#precios">Precios</a></li>
-      <li><button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar modo de color">🌙 Oscuro</button></li>
+      <li><button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar modo de color">☀️ Claro</button></li>
       <li><a href="#contacto" class="nav-cta">Cotizar →</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
@@ -1423,11 +1431,10 @@
       nav.style.background = window.scrollY > 40
         ? (dark ? 'rgba(9,20,34,0.97)' : 'rgba(234,244,251,0.98)')
         : (dark ? 'rgba(9,20,34,0.9)' : 'rgba(234,244,251,0.94)');
-      localStorage.setItem('arkaius-theme', dark ? 'dark' : 'light');
     };
 
-    const savedTheme = localStorage.getItem('arkaius-theme') || 'light';
-    applyTheme(savedTheme);
+    const defaultTheme = 'dark';
+    applyTheme(defaultTheme);
     themeToggle.addEventListener('click', () => {
       const next = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
       applyTheme(next);
