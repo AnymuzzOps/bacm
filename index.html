@@ -103,7 +103,7 @@
     }
 
     .nav-logo {
-      font-family: var(--ff-display);
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 22px;
       font-weight: 800;
       letter-spacing: 2px;
@@ -112,11 +112,19 @@
       color: var(--white);
       display: flex;
       align-items: baseline;
-      gap: 7px;
+      gap: 6px;
       line-height: 1;
       white-space: nowrap;
       flex-shrink: 0;
       align-self: center;
+    }
+
+    .nav-logo img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 8px rgba(119,205,248,0.42));
     }
 
     .nav-logo small {
@@ -130,16 +138,7 @@
       transform: none;
     }
 
-    .nav-logo::before {
-      content: '';
-      width: 8px; height: 8px;
-      background: var(--cyan);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--cyan);
-      animation: blink 2.5s infinite;
-      flex-shrink: 0;
-      align-self: center;
-    }
+    .nav-logo::before { display: none; }
 
     @keyframes blink {
       0%,100% { opacity: 1; }
@@ -1088,7 +1087,8 @@
       .nav-links .nav-cta { margin: 8px 24px; display: block; text-align: center; }
       .nav-links .theme-toggle { margin: 8px 24px; }
       .nav-brand { max-width: 72%; }
-      .nav-logo { font-size: 19px; gap: 6px; letter-spacing: 1.6px; }
+      .nav-logo { font-size: 18px; gap: 5px; letter-spacing: 1.4px; }
+      .nav-logo img { width: 30px; height: 30px; }
       .nav-logo small { font-size: 9px; margin-left: -2px; transform: none; }
       .nav-availability { font-size: 8px; padding: 3px 8px; }
       .nav-toggle { display: flex; }
@@ -1105,7 +1105,7 @@
 <body class="dark-mode">
   <nav id="navbar" role="navigation" aria-label="Navegación principal">
     <div class="nav-brand">
-      <a href="#inicio" class="nav-logo" aria-label="Arkaius Digital SpA — Inicio">ARKAIUS <small>Digital</small></a>
+      <a href="#inicio" class="nav-logo" aria-label="Arkaius Digital SpA — Inicio"><img src="assets/arkaius-logo.svg" alt="" aria-hidden="true" />ARKAIUS <small>Digital</small></a>
       <div class="nav-availability"><span aria-hidden="true"></span>Disponible para nuevos proyectos</div>
     </div>
     <ul class="nav-links" id="navLinks" role="list">

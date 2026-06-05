@@ -1,0 +1,55 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Arkaius Digital logo</title>
+  <desc id="desc">Circular blue technology mark with a stylized A lightning symbol.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#102B5C"/>
+      <stop offset="58%" stop-color="#061733"/>
+      <stop offset="100%" stop-color="#020914"/>
+    </radialGradient>
+    <linearGradient id="mark" x1="176" y1="394" x2="374" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0057FF"/>
+      <stop offset="45%" stop-color="#00B8FF"/>
+      <stop offset="100%" stop-color="#65F1FF"/>
+    </linearGradient>
+    <linearGradient id="slash" x1="174" y1="410" x2="454" y2="122" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#004DFF"/>
+      <stop offset="45%" stop-color="#00A9FF"/>
+      <stop offset="100%" stop-color="#78FFFF"/>
+    </linearGradient>
+    <filter id="glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0 0 0 0 0 0.72 0 0 0 0 1 0 0 0 0.95 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+  <circle cx="256" cy="256" r="213" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="214" stroke="#16A7FF" stroke-width="5" filter="url(#glow)"/>
+  <circle cx="256" cy="256" r="198" stroke="#0C3D8F" stroke-opacity="0.45" stroke-width="1"/>
+  <g opacity="0.32" stroke="#1A7EFF" stroke-width="1.5" stroke-linecap="round">
+    <path d="M88 184h54l23-23h50"/><path d="M96 233h71l26-26h41"/><path d="M82 293h61l31 31h58"/>
+    <path d="M304 105v98"/><path d="M350 112v86"/><path d="M406 196h-58l-22 22h-46"/>
+    <path d="M390 306h-74l-30 30h-55"/><path d="M398 354h-88l-25 25h-39"/>
+    <circle cx="215" cy="161" r="4" fill="#1A7EFF"/><circle cx="234" cy="207" r="4" fill="#1A7EFF"/>
+    <circle cx="232" cy="324" r="4" fill="#1A7EFF"/><circle cx="310" cy="336" r="4" fill="#1A7EFF"/>
+    <circle cx="348" cy="198" r="4" fill="#1A7EFF"/><circle cx="390" cy="306" r="4" fill="#1A7EFF"/>
+  </g>
+  <g opacity="0.16" fill="#3DA9FF">
+    <circle cx="120" cy="126" r="3"/><circle cx="142" cy="126" r="3"/><circle cx="164" cy="126" r="3"/><circle cx="186" cy="126" r="3"/>
+    <circle cx="120" cy="148" r="3"/><circle cx="142" cy="148" r="3"/><circle cx="164" cy="148" r="3"/><circle cx="186" cy="148" r="3"/>
+    <circle cx="342" cy="122" r="3"/><circle cx="364" cy="122" r="3"/><circle cx="386" cy="122" r="3"/><circle cx="408" cy="122" r="3"/>
+    <circle cx="342" cy="144" r="3"/><circle cx="364" cy="144" r="3"/><circle cx="386" cy="144" r="3"/><circle cx="408" cy="144" r="3"/>
+    <circle cx="238" cy="390" r="3"/><circle cx="260" cy="390" r="3"/><circle cx="282" cy="390" r="3"/><circle cx="304" cy="390" r="3"/>
+    <circle cx="238" cy="412" r="3"/><circle cx="260" cy="412" r="3"/><circle cx="282" cy="412" r="3"/><circle cx="304" cy="412" r="3"/>
+  </g>
+  <path d="M124 385 252 118l47 133 137-122-161 207-29-75-58 105-64 19Z" fill="#006BFF" opacity="0.55" filter="url(#softGlow)"/>
+  <path d="M126 382 252 118l47 133 137-122-161 207-29-75-58 105-62 16Z" fill="url(#mark)" stroke="#8CF8FF" stroke-width="2" filter="url(#glow)"/>
+  <path d="M176 408 448 122 271 347 172 410Z" fill="url(#slash)" stroke="#7BFAFF" stroke-width="1.5" filter="url(#glow)"/>
+  <path d="M297 344 376 296 326 354l-29-10Z" fill="#67F6FF" filter="url(#glow)"/>
+</svg>
